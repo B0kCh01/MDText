@@ -123,8 +123,6 @@ enum BaseMarkdownRules: String, CaseIterable, MarkdownRule {
         switch self {
         case .header:
             return .init(matchIn: #"(#+)(.*)"#, matchOut: "$2", strategy: self.header(_:))
-	case .header2:
-            return .init(matchIn: #"(##+)(.*)"#, matchOut: "$2", strategy: self.header2(_:))
         case .link:
             return .init(matchIn: #"\[([^\[]+)\]\(([^\)]+)\)"#, matchOut: "$1", strategy: self.link(_:))
         case .bold:
@@ -140,10 +138,6 @@ enum BaseMarkdownRules: String, CaseIterable, MarkdownRule {
     
     func header(_ text: Text) -> Text {
         return text.font(.largeTitle).bold()
-    }
-	
-    func header2(_ text: Text) -> Text {
-        return text.font(.title).bold().foregroundColor(.secondary)
     }
     
     func link(_ text: Text) -> Text {
