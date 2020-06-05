@@ -137,7 +137,7 @@ enum BaseMarkdownRules: String, CaseIterable, MarkdownRule {
     }
     
     func header(_ text: Text) -> Text {
-        return text.font(.headline)
+        return text.font(.title)
     }
     
     func link(_ text: Text) -> Text {
